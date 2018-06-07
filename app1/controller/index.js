@@ -1,12 +1,18 @@
 var express = require("express");
 var router = express.Router(); 
 
+var cat = require("../model/category");
+var pro = require("../model/product");
+
 router.get("/", function(req,res){
-var pagedata={cate:categ,prod:pro.getAll};
-res.render("index/index",pagedata);	//actual pagename in ejs
+cat.find(function(err,result){
+pro.find(function(err,result1){
+var pagedata={data:result,data1:result1,pagename:"index/index",title:"home page"};
+res.render("layout",pagedata);
+	});
+
 });
 
-var categ = require("../model/category");
-var pro = require("../model/product");
+});
 
 module.exports=router;

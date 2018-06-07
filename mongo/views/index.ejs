@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<div class="container">
+	<div class="well">
+		<h1 class="text-center">STUDENT DATA</h1>
+	</div>
+</div>
+
+<button type="submit" class="btn btn-primary" data-target="#myModal" data-toggle="modal">Add Details</button>
+<br><br>
+
+<div class="container">
+<table class="table table-hover table-striped table-bordered">
+	<tr class="text-center">
+		<td>S.NO</td>
+		<td>NAME</td>
+		<td>AGE</td>
+		<td>CITY</td>
+		<td>SUBJECT</td>
+	</tr>
+
+	<%data.forEach(function(x,i){%>
+
+	<tr>
+		<td><%=i+1%></td>
+		<td><%=x.name%></td>
+		<td><%=x.age%></td>
+		<td><%=x.city%></td>
+		<td><%=x.subject%></td>
+	</tr>
+
+
+	<%})%>
+</table>
+
+</div>
+<div class="modal fade" id="myModal">
+<div class="modal-dialog">
+<div class="modal-content">
+	<div class="modal-header">
+	<h1 class="text-center">ADD</h1>
+	</div>
+
+	<div class="modal-body">
+		<form method="post" action="/">
+		<div class="form-group">
+			<label>name</label>
+			<input type="text" name="name" class="form-control">
+		</div>
+
+		<div class="form-group">
+			<label>age</label>
+			<input type="text" name="age" class="form-control">
+		</div>
+
+
+		<div class="form-group">
+			<label>city</label>
+			<select class="form-control" name="city">
+			<option>select</option>
+			<option>indore</option>
+			<option>pune</option>
+			<option>bhopal</option>
+			</select>
+		</div>
+
+
+		<div class="form-group">
+			<label>subject</label>
+			<select class="form-control" name="subject">
+			<option>select</option>
+			<option>COMMERCE</option>
+			<option>PCM</option>
+			<option>PCB</option>
+			</select>
+		</div>
+
+
+	<div class="modal-footer">
+		<button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+	</div>
+
+
+		</form>
+		</div>
+	
+
+
+</div>
+</div>
+
+</div>
+
+
+
+</body>
+</html>
